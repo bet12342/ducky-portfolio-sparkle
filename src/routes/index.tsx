@@ -9,7 +9,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Pierfelice (photop2) — Italy-based full-stack developer. PC & Android apps, UI, AI integrations, data systems. 100% on time, 100% on budget.",
+          "Pierfelice — Italy-based full-stack developer. Web, mobile, AI integrations and data systems. MVPs delivered on time, on budget.",
       },
       { property: "og:title", content: "Pierfelice — Full-Stack & MVP Developer" },
       {
@@ -22,25 +22,25 @@ export const Route = createFileRoute("/")({
 
 const projects = [
   {
-    title: "Site Initial Page Redesign",
+    title: "Landing Page Redesign",
     tag: "Web · UI",
-    desc: "Delivered in just 4 hours — a high-impact landing page redesign that surprised the client with its quality and speed.",
+    desc: "High-impact landing page redesign delivered in just 4 hours — bold typography, clear hierarchy and a conversion-first layout.",
     img: "https://cdn5.f-cdn.com/files/download/291549977/gemini-2-5-flash-image_give_me.jpg?fit=crop&image-optimizer=force&format=webply&width=894&height=672",
   },
   {
     title: "AI Chatbot Admin Dashboard",
     tag: "AI · SaaS",
-    desc: "Operator dashboard for managing intents, messages, and automation flows. Modular UI with hierarchy built for real-world conversational AI.",
+    desc: "Operator dashboard for managing intents, messages, and automation flows. Modular UI built for real-world conversational AI.",
     img: "https://cdn2.f-cdn.com/files/download/291549785/gemini-2-5-flash-image_give_me.jpg?fit=crop&image-optimizer=force&format=webply&width=894&height=672",
   },
   {
     title: "Android Shopping App",
     tag: "Mobile · Android",
-    desc: "Production-grade Android commerce app focused on UI polish and user attention. Ongoing engagement with the client.",
+    desc: "Production-grade Android commerce app focused on UI polish and attention to detail. Ongoing client engagement.",
     img: "https://cdn2.f-cdn.com/files/download/291549279/android.jpg?fit=crop&image-optimizer=force&format=webply&width=894&height=672",
   },
   {
-    title: "AI Mining · Bittensor Experience",
+    title: "AI Mining · Bittensor",
     tag: "AI · Agents",
     desc: "Three years of Bittensor work — AI agents, data control and API integration at scale.",
     img: "https://cdn3.f-cdn.com/files/download/291549493/gemini-2-5-flash-image_now_giv.jpg?fit=crop&image-optimizer=force&format=webply&width=894&height=672",
@@ -48,7 +48,7 @@ const projects = [
   {
     title: "Real-time Order Tracking",
     tag: "Full-Stack",
-    desc: "End-to-end product management: drag-and-drop uploads, client-side compression, color-coded stock status and live status updates.",
+    desc: "End-to-end product management: drag-and-drop uploads, client-side compression, color-coded stock and live status updates.",
     img: "https://cdn6.f-cdn.com/files/download/290337370/223.png?fit=crop&image-optimizer=force&format=webply&width=894&height=672",
   },
 ];
@@ -58,7 +58,6 @@ const reviews = [
     name: "Samir H.",
     flag: "🇺🇸",
     rating: 5.0,
-    amount: "$250 USD",
     text: "Great communication, honest person, provided excellent work as promised. A+",
     project: "Betfair Racing Data CSV Export",
   },
@@ -66,7 +65,6 @@ const reviews = [
     name: "Pietro D.",
     flag: "🇮🇹",
     rating: 5.0,
-    amount: "$120 USD",
     text: "Second project I've trusted him with — already booked a third. Understands everything without too many questions.",
     project: "Video & Mobile App Edits",
   },
@@ -74,7 +72,6 @@ const reviews = [
     name: "PumaPulse",
     flag: "🇮🇹",
     rating: 5.0,
-    amount: "€10 EUR",
     text: "Absolutely fantastic experience! Amazing speed without compromising quality. Highly recommend!",
     project: "E-commerce Services Page Redesign",
   },
@@ -82,7 +79,6 @@ const reviews = [
     name: "Pietro D.",
     flag: "🇮🇹",
     rating: 4.4,
-    amount: "$500 USD",
     text: "Great intelligence, comprehension, creativity and mental order. Serious and professional.",
     project: "Reverse Engineering Mobile App",
   },
@@ -90,9 +86,41 @@ const reviews = [
     name: "Max A.",
     flag: "🇮🇹",
     rating: 4.4,
-    amount: "$400 USD",
     text: "Completed the work exactly as requested, based on the instructions provided.",
     project: "QR-Based Security Door System",
+  },
+];
+
+const expertise = [
+  {
+    title: "Web Applications",
+    desc: "Modern React / TypeScript front-ends paired with PHP & Node back-ends. Fast, accessible, SEO-ready.",
+    icon: "🌐",
+  },
+  {
+    title: "Mobile Apps",
+    desc: "Polished Android and iOS apps — commerce, tracking, utilities — built for retention and store quality.",
+    icon: "📱",
+  },
+  {
+    title: "AI & Agents",
+    desc: "Chatbots, AI dashboards and autonomous agents. Three years on Bittensor + custom LLM integrations.",
+    icon: "🤖",
+  },
+  {
+    title: "Data Systems",
+    desc: "Scraping, data extraction and pipelines. MySQL design, CSV/JSON exports and real-time sync.",
+    icon: "📊",
+  },
+  {
+    title: "API Integration",
+    desc: "Third-party APIs, payments, auth, webhooks and custom REST/GraphQL endpoints.",
+    icon: "🔌",
+  },
+  {
+    title: "MVP Delivery",
+    desc: "From idea to shipped product — scoped, designed, built and deployed in days, not months.",
+    icon: "🚀",
   },
 ];
 
@@ -109,10 +137,11 @@ function PortfolioPage() {
       <Hero />
       <Stats />
       <About />
+      <Expertise />
       <Skills />
       <Projects />
       <Reviews />
-      <Education />
+      <Experience />
       <Contact />
       <Footer />
     </div>
@@ -144,7 +173,7 @@ function Nav() {
             scrolled ? "glass" : ""
           }`}
         >
-          {["About", "Work", "Reviews", "Contact"].map((l) => (
+          {["About", "Expertise", "Work", "Reviews", "Contact"].map((l) => (
             <a
               key={l}
               href={`#${l.toLowerCase()}`}
@@ -158,7 +187,7 @@ function Nav() {
           href="#contact"
           className="rounded-full bg-duck-gradient px-5 py-2 text-sm font-medium text-duck-ink shadow-duck transition hover:scale-105"
         >
-          Hire me
+          Get in touch
         </a>
       </div>
     </header>
@@ -199,7 +228,6 @@ function Hero() {
         aria-hidden
       />
 
-      {/* Floating orbs */}
       <div
         className="float pointer-events-none absolute left-[8%] top-[28%] h-24 w-24 rounded-full bg-duck-gradient opacity-70 blur-2xl"
         style={{ transform: `translate(${pos.x}px, ${pos.y}px)` }}
@@ -222,7 +250,7 @@ function Hero() {
           </h1>
           <p className="mt-6 max-w-xl text-lg text-muted-foreground">
             I'm <span className="text-foreground">Pierfelice</span> — a full-stack developer
-            crafting <em>high-quality MVPs</em>, PC & Android apps, AI integrations and
+            crafting <em>high-quality MVPs</em>, web & mobile apps, AI integrations and
             data systems that ship and grow.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-3">
@@ -241,15 +269,14 @@ function Hero() {
             </a>
           </div>
           <div className="mt-10 flex flex-wrap items-center gap-6 text-sm text-muted-foreground">
-            <Metric value="$35" label="USD / hour" />
+            <Metric value="6+" label="Years building products" />
             <Divider />
             <Metric value="100%" label="On time · On budget" />
             <Divider />
-            <Metric value="4.6★" label="5 client reviews" />
+            <Metric value="4.6★" label="Average client rating" />
           </div>
         </div>
 
-        {/* Visual card */}
         <div className="relative mx-auto w-full max-w-sm">
           <div className="absolute -inset-6 rounded-3xl bg-duck-gradient opacity-40 blur-2xl" />
           <div className="relative overflow-hidden rounded-3xl glass shadow-card">
@@ -283,9 +310,9 @@ function Hero() {
               </div>
             </div>
             <div className="flex items-center justify-between border-t border-border/60 px-5 py-4 text-xs">
-              <span className="font-mono text-muted-foreground">@photop2</span>
+              <span className="font-mono text-muted-foreground">Full-Stack Developer</span>
               <span className="rounded-full bg-duck/20 px-2 py-0.5 text-duck-glow">
-                Verified · Lvl 4
+                Italy · CET
               </span>
             </div>
           </div>
@@ -311,7 +338,7 @@ function Stats() {
   const stats = [
     { v: "100%", l: "On time" },
     { v: "100%", l: "On budget" },
-    { v: "91%", l: "Accept rate" },
+    { v: "20+", l: "Projects shipped" },
     { v: "4.6", l: "Avg rating" },
   ];
   return (
@@ -374,11 +401,47 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
   );
 }
 
+function Expertise() {
+  return (
+    <section id="expertise" className="relative py-28">
+      <div className="mx-auto max-w-6xl px-6">
+        <div className="flex items-end justify-between gap-6">
+          <div>
+            <SectionLabel>02 · Expertise</SectionLabel>
+            <h2 className="mt-3 font-display text-4xl font-bold md:text-5xl">
+              What I <span className="text-gradient-duck">do best</span>
+            </h2>
+          </div>
+          <p className="hidden max-w-sm text-sm text-muted-foreground md:block">
+            Six core areas where I deliver production-ready work.
+          </p>
+        </div>
+        <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {expertise.map((e) => (
+            <div
+              key={e.title}
+              className="group relative overflow-hidden rounded-2xl glass p-6 transition hover:-translate-y-1 hover:shadow-duck"
+            >
+              <div className="text-3xl">{e.icon}</div>
+              <h3 className="mt-4 font-display text-xl font-semibold">{e.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{e.desc}</p>
+              <div
+                className="pointer-events-none absolute -right-12 -top-12 h-32 w-32 rounded-full opacity-0 blur-2xl transition group-hover:opacity-40"
+                style={{ background: "var(--gradient-duck)" }}
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Skills() {
   return (
     <section className="relative py-20">
       <div className="mx-auto max-w-6xl px-6">
-        <SectionLabel>02 · Stack</SectionLabel>
+        <SectionLabel>03 · Stack</SectionLabel>
         <h2 className="mt-3 font-display text-4xl font-bold md:text-5xl">
           Tools of the trade
         </h2>
@@ -404,7 +467,7 @@ function Projects() {
       <div className="mx-auto max-w-6xl px-6">
         <div className="flex items-end justify-between gap-6">
           <div>
-            <SectionLabel>03 · Selected work</SectionLabel>
+            <SectionLabel>04 · Selected work</SectionLabel>
             <h2 className="mt-3 font-display text-4xl font-bold md:text-5xl">
               Recent <span className="text-gradient-duck">projects</span>
             </h2>
@@ -437,10 +500,6 @@ function Projects() {
               <div className="relative p-6">
                 <h3 className="font-display text-xl font-semibold">{p.title}</h3>
                 <p className="mt-2 line-clamp-3 text-sm text-muted-foreground">{p.desc}</p>
-                <div className="mt-4 flex items-center gap-2 text-sm text-duck-glow">
-                  Case study
-                  <span className="transition group-hover:translate-x-1">→</span>
-                </div>
               </div>
             </article>
           ))}
@@ -458,7 +517,7 @@ function Reviews() {
         style={{ background: "var(--gradient-duck)" }}
       />
       <div className="mx-auto max-w-6xl px-6">
-        <SectionLabel>04 · Voices</SectionLabel>
+        <SectionLabel>05 · Voices</SectionLabel>
         <h2 className="mt-3 font-display text-4xl font-bold md:text-5xl">
           What clients <span className="text-gradient-duck">say</span>
         </h2>
@@ -478,10 +537,7 @@ function Reviews() {
                     <div className="text-xs text-muted-foreground">{r.project}</div>
                   </div>
                 </div>
-                <div className="text-right">
-                  <div className="font-mono text-sm text-duck-glow">★ {r.rating}</div>
-                  <div className="text-xs text-muted-foreground">{r.amount}</div>
-                </div>
+                <div className="font-mono text-sm text-duck-glow">★ {r.rating}</div>
               </div>
               <blockquote className="mt-4 text-sm leading-relaxed text-muted-foreground">
                 "{r.text}"
@@ -494,11 +550,11 @@ function Reviews() {
   );
 }
 
-function Education() {
+function Experience() {
   return (
     <section className="relative py-20">
       <div className="mx-auto max-w-6xl px-6">
-        <SectionLabel>05 · Background</SectionLabel>
+        <SectionLabel>06 · Background</SectionLabel>
         <div className="mt-8 grid gap-6 md:grid-cols-2">
           <div className="rounded-2xl glass p-8 shadow-card">
             <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
@@ -520,7 +576,7 @@ function Education() {
               Preferred Freelancer Program SLA
             </h3>
             <p className="mt-1 text-muted-foreground">
-              Verified · Level 4 Membership · Top-tier reliability badge
+              Verified · Level 4 · Top-tier reliability badge
             </p>
           </div>
         </div>
@@ -538,7 +594,7 @@ function Contact() {
             className="absolute -inset-1 -z-10 rounded-3xl opacity-30 blur-2xl"
             style={{ background: "var(--gradient-duck)" }}
           />
-          <SectionLabel>06 · Let's build</SectionLabel>
+          <SectionLabel>07 · Let's build</SectionLabel>
           <h2 className="mt-4 font-display text-4xl font-bold md:text-6xl">
             Have an idea? <br />
             <span className="text-gradient-duck">Let's make it real.</span>
@@ -548,18 +604,16 @@ function Contact() {
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <a
-              href="https://www.freelancer.com/u/photop2"
-              target="_blank"
-              rel="noreferrer"
+              href="mailto:hello@pierfelice.dev"
               className="rounded-full bg-duck-gradient px-7 py-3 font-medium text-duck-ink shadow-duck transition hover:scale-105"
             >
-              Hire on Freelancer
+              hello@pierfelice.dev
             </a>
             <a
-              href="mailto:hello@pierfelice.dev"
+              href="#work"
               className="rounded-full border border-border px-7 py-3 font-medium transition hover:bg-secondary/60"
             >
-              hello@pierfelice.dev
+              See my work
             </a>
           </div>
         </div>
@@ -574,7 +628,7 @@ function Footer() {
       <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 text-sm text-muted-foreground md:flex-row">
         <div className="flex items-center gap-2">
           <DuckMark className="h-6 w-6" />
-          <span>© {new Date().getFullYear()} Pierfelice · @photop2</span>
+          <span>© {new Date().getFullYear()} Pierfelice · Full-Stack Developer</span>
         </div>
         <div className="font-mono text-xs uppercase tracking-[0.2em]">
           Crafted in Italy · Built to last
