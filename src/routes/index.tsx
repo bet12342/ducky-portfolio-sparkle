@@ -60,6 +60,7 @@ const reviews = [
     rating: 5.0,
     text: "Great communication, honest person, provided excellent work as promised. A+",
     project: "Betfair Racing Data CSV Export",
+    img: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=70",
   },
   {
     name: "Pietro D.",
@@ -67,6 +68,7 @@ const reviews = [
     rating: 5.0,
     text: "Second project I've trusted him with — already booked a third. Understands everything without too many questions.",
     project: "Video & Mobile App Edits",
+    img: "https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?auto=format&fit=crop&w=900&q=70",
   },
   {
     name: "PumaPulse",
@@ -74,6 +76,7 @@ const reviews = [
     rating: 5.0,
     text: "Absolutely fantastic experience! Amazing speed without compromising quality. Highly recommend!",
     project: "E-commerce Services Page Redesign",
+    img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=70",
   },
   {
     name: "Pietro D.",
@@ -81,6 +84,7 @@ const reviews = [
     rating: 4.4,
     text: "Great intelligence, comprehension, creativity and mental order. Serious and professional.",
     project: "Reverse Engineering Mobile App",
+    img: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=900&q=70",
   },
   {
     name: "Max A.",
@@ -88,6 +92,7 @@ const reviews = [
     rating: 4.4,
     text: "Completed the work exactly as requested, based on the instructions provided.",
     project: "QR-Based Security Door System",
+    img: "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=900&q=70",
   },
 ];
 
@@ -524,24 +529,38 @@ function Reviews() {
 
         <div className="mt-12 columns-1 gap-6 md:columns-2 lg:columns-3 [&>*]:mb-6 [&>*]:break-inside-avoid">
           {reviews.map((r) => (
-            <figure key={r.project} className="rounded-2xl glass p-6 shadow-card">
-              <div className="flex items-center justify-between text-sm">
-                <div className="flex items-center gap-3">
-                  <div className="grid h-10 w-10 place-items-center rounded-full bg-duck-gradient font-semibold text-duck-ink">
-                    {r.name[0]}
-                  </div>
-                  <div>
-                    <div className="font-medium text-foreground">
-                      {r.name} <span className="ml-1">{r.flag}</span>
-                    </div>
-                    <div className="text-xs text-muted-foreground">{r.project}</div>
-                  </div>
-                </div>
-                <div className="font-mono text-sm text-duck-glow">★ {r.rating}</div>
+            <figure key={r.project} className="group overflow-hidden rounded-2xl glass shadow-card transition hover:-translate-y-1 hover:shadow-duck">
+              <div className="relative aspect-[16/9] overflow-hidden">
+                <img
+                  src={r.img}
+                  alt={r.project}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-duck-ink via-duck-ink/50 to-transparent" />
+                <span className="absolute left-3 top-3 rounded-full bg-duck-ink/70 px-3 py-1 text-[11px] font-medium text-duck-glow backdrop-blur">
+                  {r.project}
+                </span>
               </div>
-              <blockquote className="mt-4 text-sm leading-relaxed text-muted-foreground">
-                "{r.text}"
-              </blockquote>
+              <div className="p-6">
+                <div className="flex items-center justify-between text-sm">
+                  <div className="flex items-center gap-3">
+                    <div className="grid h-10 w-10 place-items-center rounded-full bg-duck-gradient font-semibold text-duck-ink">
+                      {r.name[0]}
+                    </div>
+                    <div>
+                      <div className="font-medium text-foreground">
+                        {r.name} <span className="ml-1">{r.flag}</span>
+                      </div>
+                      <div className="text-xs text-muted-foreground">{r.project}</div>
+                    </div>
+                  </div>
+                  <div className="font-mono text-sm text-duck-glow">★ {r.rating}</div>
+                </div>
+                <blockquote className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                  "{r.text}"
+                </blockquote>
+              </div>
             </figure>
           ))}
         </div>
