@@ -345,7 +345,7 @@ function Stats() {
     { v: "100%", l: "On time" },
     { v: "100%", l: "On budget" },
     { v: "20+", l: "Projects shipped" },
-    { v: "4.6", l: "Avg rating" },
+    { v: "4.8", l: "Avg rating" },
   ];
   return (
     <section className="relative border-y border-border/50 bg-secondary/30 py-12">
