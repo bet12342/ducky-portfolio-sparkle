@@ -529,24 +529,38 @@ function Reviews() {
 
         <div className="mt-12 columns-1 gap-6 md:columns-2 lg:columns-3 [&>*]:mb-6 [&>*]:break-inside-avoid">
           {reviews.map((r) => (
-            <figure key={r.project} className="rounded-2xl glass p-6 shadow-card">
-              <div className="flex items-center justify-between text-sm">
-                <div className="flex items-center gap-3">
-                  <div className="grid h-10 w-10 place-items-center rounded-full bg-duck-gradient font-semibold text-duck-ink">
-                    {r.name[0]}
-                  </div>
-                  <div>
-                    <div className="font-medium text-foreground">
-                      {r.name} <span className="ml-1">{r.flag}</span>
-                    </div>
-                    <div className="text-xs text-muted-foreground">{r.project}</div>
-                  </div>
-                </div>
-                <div className="font-mono text-sm text-duck-glow">★ {r.rating}</div>
+            <figure key={r.project} className="group overflow-hidden rounded-2xl glass shadow-card transition hover:-translate-y-1 hover:shadow-duck">
+              <div className="relative aspect-[16/9] overflow-hidden">
+                <img
+                  src={r.img}
+                  alt={r.project}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-duck-ink via-duck-ink/50 to-transparent" />
+                <span className="absolute left-3 top-3 rounded-full bg-duck-ink/70 px-3 py-1 text-[11px] font-medium text-duck-glow backdrop-blur">
+                  {r.project}
+                </span>
               </div>
-              <blockquote className="mt-4 text-sm leading-relaxed text-muted-foreground">
-                "{r.text}"
-              </blockquote>
+              <div className="p-6">
+                <div className="flex items-center justify-between text-sm">
+                  <div className="flex items-center gap-3">
+                    <div className="grid h-10 w-10 place-items-center rounded-full bg-duck-gradient font-semibold text-duck-ink">
+                      {r.name[0]}
+                    </div>
+                    <div>
+                      <div className="font-medium text-foreground">
+                        {r.name} <span className="ml-1">{r.flag}</span>
+                      </div>
+                      <div className="text-xs text-muted-foreground">{r.project}</div>
+                    </div>
+                  </div>
+                  <div className="font-mono text-sm text-duck-glow">★ {r.rating}</div>
+                </div>
+                <blockquote className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                  "{r.text}"
+                </blockquote>
+              </div>
             </figure>
           ))}
         </div>
