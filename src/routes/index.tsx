@@ -211,6 +211,107 @@ function DuckMark({ className = "" }: { className?: string }) {
   );
 }
 
+/**
+ * AICodingMark — dynamic symbol for an AI × Coding Engineer.
+ * Hex frame (engineering) + pulsing neural nodes (AI) + rotating </> glyph (code)
+ * + orbiting electrons + scanning sweep = continuous shipping.
+ */
+function AICodingMark({ className = "" }: { className?: string }) {
+  const nodes: Array<[number, number]> = [
+    [120, 52], [178, 86], [178, 154],
+    [120, 188], [62, 154], [62, 86],
+  ];
+  return (
+    <div className={`relative ${className}`}>
+      <div className="absolute inset-0 rounded-full bg-duck-gradient opacity-40 blur-3xl" />
+      <svg
+        viewBox="0 0 240 240"
+        className="relative h-full w-full"
+        role="img"
+        aria-label="AI and Coding Engineer symbol"
+      >
+        <defs>
+          <linearGradient id="aicStroke" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stopColor="oklch(0.78 0.15 190)" />
+            <stop offset="100%" stopColor="oklch(0.62 0.16 200)" />
+          </linearGradient>
+          <radialGradient id="aicCore" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="oklch(0.82 0.13 85)" />
+            <stop offset="60%" stopColor="oklch(0.62 0.16 200)" />
+            <stop offset="100%" stopColor="oklch(0.20 0.05 215)" />
+          </radialGradient>
+          <filter id="aicGlow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="2.4" result="b" />
+            <feMerge>
+              <feMergeNode in="b" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+        </defs>
+
+        <g style={{ transformOrigin: "120px 120px" }} className="spin-slow">
+          <circle cx="120" cy="120" r="108" fill="none" stroke="url(#aicStroke)" strokeWidth="1.2" strokeDasharray="2 8" opacity="0.7" />
+        </g>
+        <g style={{ transformOrigin: "120px 120px", animation: "spin-slow 26s linear infinite reverse" }}>
+          <circle cx="120" cy="120" r="94" fill="none" stroke="oklch(0.72 0.13 195 / 0.35)" strokeWidth="0.8" strokeDasharray="1 5" />
+        </g>
+
+        <g filter="url(#aicGlow)">
+          <polygon points="120,30 196,75 196,165 120,210 44,165 44,75" fill="none" stroke="url(#aicStroke)" strokeWidth="1.6" opacity="0.85" />
+          <polygon points="120,52 178,86 178,154 120,188 62,154 62,86" fill="none" stroke="oklch(0.78 0.15 190 / 0.35)" strokeWidth="0.8" />
+        </g>
+
+        <g stroke="url(#aicStroke)" strokeWidth="0.9" opacity="0.85">
+          {nodes.map(([x, y], i) => (
+            <line key={i} x1={x} y1={y} x2="120" y2="120">
+              <animate attributeName="opacity" values="0.15;1;0.15" dur="2.6s" begin={`${i * 0.3}s`} repeatCount="indefinite" />
+            </line>
+          ))}
+        </g>
+
+        {nodes.map(([x, y], i) => (
+          <g key={i}>
+            <circle cx={x} cy={y} r="4" fill="oklch(0.82 0.13 85)" />
+            <circle cx={x} cy={y} r="4" fill="none" stroke="oklch(0.82 0.13 85)" strokeWidth="1">
+              <animate attributeName="r" values="4;11;4" dur="2.4s" begin={`${i * 0.25}s`} repeatCount="indefinite" />
+              <animate attributeName="opacity" values="0.9;0;0.9" dur="2.4s" begin={`${i * 0.25}s`} repeatCount="indefinite" />
+            </circle>
+          </g>
+        ))}
+
+        <circle cx="120" cy="120" r="34" fill="url(#aicCore)" filter="url(#aicGlow)" />
+        <circle cx="120" cy="120" r="34" fill="none" stroke="oklch(0.96 0.02 180 / 0.6)" strokeWidth="0.8" />
+
+        <g
+          fill="none"
+          stroke="oklch(0.14 0.04 215)"
+          strokeWidth="3"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          style={{ transformOrigin: "120px 120px", animation: "spin-slow 12s linear infinite" }}
+        >
+          <polyline points="108,110 96,120 108,130" />
+          <polyline points="132,110 144,120 132,130" />
+          <line x1="126" y1="106" x2="114" y2="134" />
+        </g>
+
+        <g style={{ transformOrigin: "120px 120px", animation: "spin-slow 6s linear infinite" }}>
+          <circle cx="120" cy="38" r="3.5" fill="oklch(0.82 0.13 85)">
+            <animate attributeName="r" values="2.5;4.5;2.5" dur="1.6s" repeatCount="indefinite" />
+          </circle>
+        </g>
+        <g style={{ transformOrigin: "120px 120px", animation: "spin-slow 9s linear infinite reverse" }}>
+          <circle cx="120" cy="212" r="2.5" fill="oklch(0.78 0.15 190)" />
+        </g>
+
+        <g style={{ transformOrigin: "120px 120px", animation: "spin-slow 4s linear infinite" }}>
+          <path d="M120,120 L120,28 A92,92 0 0,1 196,80 Z" fill="url(#aicStroke)" opacity="0.10" />
+        </g>
+      </svg>
+    </div>
+  );
+}
+
 function Hero() {
   const ref = useRef<HTMLDivElement>(null);
   const [pos, setPos] = useState({ x: 0, y: 0 });
@@ -293,27 +394,21 @@ function Hero() {
               />
               <div className="absolute inset-0 noise" />
               <div className="absolute inset-0 grid place-items-center">
-                <div className="relative spin-slow">
-                  <svg viewBox="0 0 200 200" className="h-64 w-64">
+                <div className="relative h-72 w-72">
+                  <svg viewBox="0 0 200 200" className="absolute inset-0 h-full w-full spin-slow">
                     <defs>
-                      <path
-                        id="circ"
-                        d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"
-                      />
+                      <path id="circ" d="M100,100 m-86,0 a86,86 0 1,1 172,0 a86,86 0 1,1 -172,0" />
                     </defs>
-                    <text fill="oklch(0.96 0.02 180)" fontSize="12" letterSpacing="6">
+                    <text fill="oklch(0.96 0.02 180)" fontSize="10" letterSpacing="6">
                       <textPath href="#circ">
-                        PIERFELICE · FULL-STACK · MVP · AI · MOBILE · 
+                        AI ENGINEER · CODING · FULL-STACK · MVP · AGENTS · MOBILE · 
                       </textPath>
                     </text>
                   </svg>
-                  <div className="absolute inset-0 grid place-items-center">
-                    <div className="grid h-28 w-28 place-items-center rounded-full bg-duck-ink shadow-glow">
-                      <span className="font-display text-4xl font-bold text-gradient-duck">P</span>
-                    </div>
-                  </div>
+                  <AICodingMark className="absolute inset-4" />
                 </div>
               </div>
+
             </div>
             <div className="flex items-center justify-between border-t border-border/60 px-5 py-4 text-xs">
               <span className="font-mono text-muted-foreground">Full-Stack Developer</span>
