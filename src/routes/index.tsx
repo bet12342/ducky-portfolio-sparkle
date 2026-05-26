@@ -60,6 +60,7 @@ const reviews = [
     rating: 5.0,
     text: "Great communication, honest person, provided excellent work as promised. A+",
     project: "Betfair Racing Data CSV Export",
+    img: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=70",
   },
   {
     name: "Pietro D.",
@@ -67,6 +68,7 @@ const reviews = [
     rating: 5.0,
     text: "Second project I've trusted him with — already booked a third. Understands everything without too many questions.",
     project: "Video & Mobile App Edits",
+    img: "https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?auto=format&fit=crop&w=900&q=70",
   },
   {
     name: "PumaPulse",
@@ -74,6 +76,7 @@ const reviews = [
     rating: 5.0,
     text: "Absolutely fantastic experience! Amazing speed without compromising quality. Highly recommend!",
     project: "E-commerce Services Page Redesign",
+    img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=70",
   },
   {
     name: "Pietro D.",
@@ -81,6 +84,7 @@ const reviews = [
     rating: 4.4,
     text: "Great intelligence, comprehension, creativity and mental order. Serious and professional.",
     project: "Reverse Engineering Mobile App",
+    img: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=900&q=70",
   },
   {
     name: "Max A.",
@@ -88,6 +92,7 @@ const reviews = [
     rating: 4.4,
     text: "Completed the work exactly as requested, based on the instructions provided.",
     project: "QR-Based Security Door System",
+    img: "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=900&q=70",
   },
 ];
 
