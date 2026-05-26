@@ -22,38 +22,46 @@ export const Route = createFileRoute("/")({
 
 const projects = [
   {
-    title: "Landing Page Redesign",
+    title: "Site Initial Page Redesign",
     tag: "Web · UI",
-    desc: "High-impact landing page redesign delivered in just 4 hours — bold typography, clear hierarchy and a conversion-first layout.",
+    desc: "Client needed a complete landing page redesign in a very short time. Delivered in just 4 hours — bold typography, sharp hierarchy, conversion-first layout.",
     img: "https://cdn5.f-cdn.com/files/download/291549977/gemini-2-5-flash-image_give_me.jpg?fit=crop&image-optimizer=force&format=webply&width=894&height=672",
   },
   {
-    title: "AI Chatbot Admin Dashboard",
+    title: "AI Chatbot Integration with Site",
     tag: "AI · SaaS",
-    desc: "Operator dashboard for managing intents, messages, and automation flows. Modular UI built for real-world conversational AI.",
+    desc: "Admin dashboard for an AI chatbot platform — managing intents, messages and automation flows. Modular UI built for real-world conversational AI.",
     img: "https://cdn2.f-cdn.com/files/download/291549785/gemini-2-5-flash-image_give_me.jpg?fit=crop&image-optimizer=force&format=webply&width=894&height=672",
   },
   {
     title: "Android Shopping App",
     tag: "Mobile · Android",
-    desc: "Production-grade Android commerce app focused on UI polish and attention to detail. Ongoing client engagement.",
+    desc: "Production Android commerce app focused on UI polish and user attention. Ongoing client engagement — built for retention.",
     img: "https://cdn2.f-cdn.com/files/download/291549279/android.jpg?fit=crop&image-optimizer=force&format=webply&width=894&height=672",
   },
   {
-    title: "AI Mining · Bittensor",
+    title: "AI Mining Experience",
     tag: "AI · Agents",
-    desc: "Three years of Bittensor work — AI agents, data control and API integration at scale.",
+    desc: "Three years of Bittensor work — AI agents, data control and API integration at scale across multiple deployments.",
     img: "https://cdn3.f-cdn.com/files/download/291549493/gemini-2-5-flash-image_now_giv.jpg?fit=crop&image-optimizer=force&format=webply&width=894&height=672",
   },
   {
-    title: "Real-time Order Tracking",
+    title: "Real-time Order Tracking with Status",
     tag: "Full-Stack",
-    desc: "End-to-end product management: drag-and-drop uploads, client-side compression, color-coded stock and live status updates.",
+    desc: "End-to-end product management: drag-and-drop uploads, client-side compression, color-coded stock and live status updates wired into PHP + MySQL.",
     img: "https://cdn6.f-cdn.com/files/download/290337370/223.png?fit=crop&image-optimizer=force&format=webply&width=894&height=672",
   },
 ];
 
 const reviews = [
+  {
+    name: "Gianluca A.",
+    flag: "🇮🇹",
+    rating: 5.0,
+    text: "Excellent work. Competent guy, always available. He advised me and built the project exactly as I wanted. I'll definitely entrust him with my next projects.",
+    project: "Telegram Meme Token Trading Bot",
+    img: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=900&q=70",
+  },
   {
     name: "Samir H.",
     flag: "🇺🇸",
@@ -66,23 +74,15 @@ const reviews = [
     name: "Pietro D.",
     flag: "🇮🇹",
     rating: 5.0,
-    text: "Second project I've trusted him with — already booked a third. Understands everything without too many questions.",
+    text: "Second project I've trusted him with — already booked a third. Understands everything without too many questions. Very good.",
     project: "Video & Mobile App Edits",
     img: "https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?auto=format&fit=crop&w=900&q=70",
-  },
-  {
-    name: "PumaPulse",
-    flag: "🇮🇹",
-    rating: 5.0,
-    text: "Absolutely fantastic experience! Amazing speed without compromising quality. Highly recommend!",
-    project: "E-commerce Services Page Redesign",
-    img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=70",
   },
   {
     name: "Pietro D.",
     flag: "🇮🇹",
     rating: 4.4,
-    text: "Great intelligence, comprehension, creativity and mental order. Serious and professional.",
+    text: "Received the brief and built a perfect job almost without asking anything more. Uncommon. Great intelligence, comprehension, creativity and mental order. Serious and professional.",
     project: "Reverse Engineering Mobile App",
     img: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=900&q=70",
   },
@@ -90,11 +90,12 @@ const reviews = [
     name: "Max A.",
     flag: "🇮🇹",
     rating: 4.4,
-    text: "Completed the work exactly as requested, based on the instructions provided.",
-    project: "QR-Based Security Door System",
+    text: "Completed the work as requested, based on the instructions provided.",
+    project: "QR-Based Security Door Maintenance System",
     img: "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=900&q=70",
   },
 ];
+
 
 const expertise = [
   {
@@ -278,7 +279,7 @@ function Hero() {
             <Divider />
             <Metric value="100%" label="On time · On budget" />
             <Divider />
-            <Metric value="4.6★" label="Average client rating" />
+            <Metric value="4.8★" label="Average client rating" />
           </div>
         </div>
 
@@ -344,7 +345,7 @@ function Stats() {
     { v: "100%", l: "On time" },
     { v: "100%", l: "On budget" },
     { v: "20+", l: "Projects shipped" },
-    { v: "4.6", l: "Avg rating" },
+    { v: "4.8", l: "Avg rating" },
   ];
   return (
     <section className="relative border-y border-border/50 bg-secondary/30 py-12">
