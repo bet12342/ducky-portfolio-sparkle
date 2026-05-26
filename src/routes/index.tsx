@@ -279,7 +279,7 @@ function Hero() {
             <Divider />
             <Metric value="100%" label="On time · On budget" />
             <Divider />
-            <Metric value="4.6★" label="Average client rating" />
+            <Metric value="4.8★" label="Average client rating" />
           </div>
         </div>
 
