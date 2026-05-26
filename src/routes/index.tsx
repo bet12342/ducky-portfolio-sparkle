@@ -394,27 +394,21 @@ function Hero() {
               />
               <div className="absolute inset-0 noise" />
               <div className="absolute inset-0 grid place-items-center">
-                <div className="relative spin-slow">
-                  <svg viewBox="0 0 200 200" className="h-64 w-64">
+                <div className="relative h-72 w-72">
+                  <svg viewBox="0 0 200 200" className="absolute inset-0 h-full w-full spin-slow">
                     <defs>
-                      <path
-                        id="circ"
-                        d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"
-                      />
+                      <path id="circ" d="M100,100 m-86,0 a86,86 0 1,1 172,0 a86,86 0 1,1 -172,0" />
                     </defs>
-                    <text fill="oklch(0.96 0.02 180)" fontSize="12" letterSpacing="6">
+                    <text fill="oklch(0.96 0.02 180)" fontSize="10" letterSpacing="6">
                       <textPath href="#circ">
-                        PIERFELICE · FULL-STACK · MVP · AI · MOBILE · 
+                        AI ENGINEER · CODING · FULL-STACK · MVP · AGENTS · MOBILE · 
                       </textPath>
                     </text>
                   </svg>
-                  <div className="absolute inset-0 grid place-items-center">
-                    <div className="grid h-28 w-28 place-items-center rounded-full bg-duck-ink shadow-glow">
-                      <span className="font-display text-4xl font-bold text-gradient-duck">P</span>
-                    </div>
-                  </div>
+                  <AICodingMark className="absolute inset-4" />
                 </div>
               </div>
+
             </div>
             <div className="flex items-center justify-between border-t border-border/60 px-5 py-4 text-xs">
               <span className="font-mono text-muted-foreground">Full-Stack Developer</span>
