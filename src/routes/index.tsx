@@ -476,16 +476,16 @@ function About() {
         </div>
         <div className="space-y-6 text-lg leading-relaxed text-muted-foreground">
           <p>
-            Hi, I'm <span className="text-foreground">Pierfelice</span> — a digital creator
-            and developer based in Italy focused on turning ideas into real, scalable
-            products. I help bring digital projects to life, from high-quality MVPs to
-            fully developed applications ready for launch.
+            Hi, I'm <span className="text-foreground">Pierfelice</span> — an AI & Coding
+            Infrastructure Engineer based in Italy, working <span className="text-foreground">remotely</span> with
+            teams worldwide. I design the systems behind AI products: inference
+            platforms, agent runtimes, developer tooling and cloud infrastructure.
           </p>
           <p>
-            With years across web, mobile and AI, I deliver fast without compromising
-            quality — backed by{" "}
-            <span className="text-foreground">100% on-time, 100% on-budget</span>{" "}
-            execution and a master's in computer science from the University of Oxford.
+            Years across AI, full-stack and data — I deliver production-grade
+            infrastructure backed by a master's in computer science from the
+            University of Oxford. Native <span className="text-foreground">Italian</span>,
+            fluent <span className="text-foreground">English</span>.
           </p>
         </div>
       </div>
