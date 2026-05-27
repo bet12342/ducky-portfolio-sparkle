@@ -411,9 +411,9 @@ function Hero() {
               </div>
             </div>
             <div className="flex items-center justify-between border-t border-border/60 px-5 py-4 text-xs">
-              <span className="font-mono text-muted-foreground">Full-Stack Developer</span>
+              <span className="font-mono text-muted-foreground">AI & Coding Infra Engineer</span>
               <span className="rounded-full bg-duck/20 px-2 py-0.5 text-duck-glow">
-                Italy · CET
+                Remote · Worldwide
               </span>
             </div>
           </div>
