@@ -6,16 +6,16 @@ export const Route = createFileRoute("/")({
   component: PortfolioPage,
   head: () => ({
     meta: [
-      { title: "Pierfelice — Full-Stack & MVP Developer Portfolio" },
+      { title: "Pierfelice — AI & Coding Infrastructure Engineer (Remote)" },
       {
         name: "description",
         content:
-          "Pierfelice — Italy-based full-stack developer. Web, mobile, AI integrations and data systems. MVPs delivered on time, on budget.",
+          "Pierfelice — AI & Coding Infrastructure Engineer. Building scalable AI systems, developer platforms and cloud infrastructure. Open to remote roles worldwide.",
       },
-      { property: "og:title", content: "Pierfelice — Full-Stack & MVP Developer" },
+      { property: "og:title", content: "Pierfelice — AI & Coding Infrastructure Engineer" },
       {
         property: "og:description",
-        content: "Turning ideas into scalable products. MVPs, apps, AI, and data systems.",
+        content: "Designing AI infrastructure, dev platforms and cloud-native systems. Remote, worldwide.",
       },
     ],
   }),
@@ -58,15 +58,13 @@ const reviews = [
   {
     name: "Gianluca A.",
     flag: "🇮🇹",
-    rating: 5.0,
-    text: "Excellent work. Competent guy, always available. He advised me and built the project exactly as I wanted. I'll definitely entrust him with my next projects.",
+    text: "Excellent work. Competent engineer, always available. He advised me and built the project exactly as I wanted. I'll definitely entrust him with my next projects.",
     project: "Telegram Meme Token Trading Bot",
     img: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=900&q=70",
   },
   {
     name: "Samir H.",
     flag: "🇺🇸",
-    rating: 5.0,
     text: "Great communication, honest person, provided excellent work as promised. A+",
     project: "Betfair Racing Data CSV Export",
     img: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=70",
@@ -74,7 +72,6 @@ const reviews = [
   {
     name: "Pietro D.",
     flag: "🇮🇹",
-    rating: 5.0,
     text: "Second project I've trusted him with — already booked a third. Understands everything without too many questions. Very good.",
     project: "Video & Mobile App Edits",
     img: "https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?auto=format&fit=crop&w=900&q=70",
@@ -82,7 +79,6 @@ const reviews = [
   {
     name: "Pietro D.",
     flag: "🇮🇹",
-    rating: 4.4,
     text: "Received the brief and built a perfect job almost without asking anything more. Uncommon. Great intelligence, comprehension, creativity and mental order. Serious and professional.",
     project: "Reverse Engineering Mobile App",
     img: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=900&q=70",
@@ -90,7 +86,6 @@ const reviews = [
   {
     name: "Max A.",
     flag: "🇮🇹",
-    rating: 4.4,
     text: "Completed the work as requested, based on the instructions provided.",
     project: "QR-Based Security Door Maintenance System",
     img: "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=900&q=70",
@@ -100,41 +95,43 @@ const reviews = [
 
 const expertise = [
   {
-    title: "Web Applications",
-    desc: "Modern React / TypeScript front-ends paired with PHP & Node back-ends. Fast, accessible, SEO-ready.",
-    icon: "🌐",
+    title: "AI Infrastructure",
+    desc: "LLM serving, RAG pipelines, vector DBs, GPU orchestration and inference platforms designed to scale.",
+    icon: "🧠",
   },
   {
-    title: "Mobile Apps",
-    desc: "Polished Android and iOS apps — commerce, tracking, utilities — built for retention and store quality.",
-    icon: "📱",
+    title: "Developer Platforms",
+    desc: "Internal tooling, CI/CD, SDKs and DX-first APIs that let engineering teams ship faster.",
+    icon: "🛠️",
   },
   {
-    title: "AI & Agents",
-    desc: "Chatbots, AI dashboards and autonomous agents. Three years on Bittensor + custom LLM integrations.",
+    title: "Cloud & DevOps",
+    desc: "Kubernetes, Docker, Terraform and observability on AWS / GCP / Cloudflare — production-grade from day one.",
+    icon: "☁️",
+  },
+  {
+    title: "AI Agents",
+    desc: "Autonomous agents, tool-use orchestration and LLM workflows. Three years on Bittensor + custom stacks.",
     icon: "🤖",
   },
   {
+    title: "Full-Stack Engineering",
+    desc: "React / TypeScript front-ends with Node, PHP and Python services. End-to-end ownership.",
+    icon: "🌐",
+  },
+  {
     title: "Data Systems",
-    desc: "Scraping, data extraction and pipelines. MySQL design, CSV/JSON exports and real-time sync.",
+    desc: "Pipelines, scraping, MySQL/Postgres design, streaming and real-time sync across services.",
     icon: "📊",
-  },
-  {
-    title: "API Integration",
-    desc: "Third-party APIs, payments, auth, webhooks and custom REST/GraphQL endpoints.",
-    icon: "🔌",
-  },
-  {
-    title: "MVP Delivery",
-    desc: "From idea to shipped product — scoped, designed, built and deployed in days, not months.",
-    icon: "🚀",
   },
 ];
 
 const skills = [
-  "PHP", "JavaScript", "TypeScript", "React", "Android", "iOS",
-  "Mobile App Dev", "Website Design", "MySQL", "Web Scraping",
-  "Data Extraction", "AI Agents", "Bittensor", "API Integration",
+  "Python", "TypeScript", "Node.js", "React", "PHP",
+  "LLMs", "RAG", "Vector DBs", "AI Agents", "Bittensor",
+  "Docker", "Kubernetes", "AWS", "Cloudflare Workers",
+  "PostgreSQL", "MySQL", "Web Scraping", "API Design",
+  "Italian (Native)", "English (Fluent)",
 ];
 
 function PortfolioPage() {
@@ -349,17 +346,17 @@ function Hero() {
         <div className="rise">
           <div className="inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 text-xs uppercase tracking-[0.18em] text-muted-foreground">
             <span className="h-2 w-2 animate-pulse rounded-full bg-duck-glow shadow-glow" />
-            Available · Italy (CET)
+            Open to remote roles · Worldwide
           </div>
           <h1 className="mt-6 font-display text-5xl font-bold leading-[1.05] tracking-tight md:text-7xl">
-            Turning ideas into
+            AI & Coding
             <br />
-            <span className="text-gradient-duck">scalable products.</span>
+            <span className="text-gradient-duck">Infrastructure Engineer.</span>
           </h1>
           <p className="mt-6 max-w-xl text-lg text-muted-foreground">
-            I'm <span className="text-foreground">Pierfelice</span> — a full-stack developer
-            crafting <em>high-quality MVPs</em>, web & mobile apps, AI integrations and
-            data systems that ship and grow.
+            I'm <span className="text-foreground">Pierfelice</span> — I design and build
+            <em> AI infrastructure</em>, developer platforms and cloud-native systems
+            that ship to production and scale.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <a
@@ -373,15 +370,15 @@ function Hero() {
               href="#contact"
               className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 font-medium text-foreground transition hover:bg-secondary/60"
             >
-              Start a project
+              Hire me remotely
             </a>
           </div>
           <div className="mt-10 flex flex-wrap items-center gap-6 text-sm text-muted-foreground">
-            <Metric value="6+" label="Years building products" />
+            <Metric value="6+" label="Years building systems" />
             <Divider />
-            <Metric value="100%" label="On time · On budget" />
+            <Metric value="Remote" label="Worldwide · Any timezone" />
             <Divider />
-            <Metric value="4.8★" label="Average client rating" />
+            <Metric value="AI · Cloud" label="Infra · Platforms · Agents" />
           </div>
         </div>
 
@@ -414,9 +411,9 @@ function Hero() {
               </div>
             </div>
             <div className="flex items-center justify-between border-t border-border/60 px-5 py-4 text-xs">
-              <span className="font-mono text-muted-foreground">Full-Stack Developer</span>
+              <span className="font-mono text-muted-foreground">AI & Coding Infra Engineer</span>
               <span className="rounded-full bg-duck/20 px-2 py-0.5 text-duck-glow">
-                Italy · CET
+                Remote · Worldwide
               </span>
             </div>
           </div>
@@ -479,16 +476,16 @@ function About() {
         </div>
         <div className="space-y-6 text-lg leading-relaxed text-muted-foreground">
           <p>
-            Hi, I'm <span className="text-foreground">Pierfelice</span> — a digital creator
-            and developer based in Italy focused on turning ideas into real, scalable
-            products. I help bring digital projects to life, from high-quality MVPs to
-            fully developed applications ready for launch.
+            Hi, I'm <span className="text-foreground">Pierfelice</span> — an AI & Coding
+            Infrastructure Engineer based in Italy, working <span className="text-foreground">remotely</span> with
+            teams worldwide. I design the systems behind AI products: inference
+            platforms, agent runtimes, developer tooling and cloud infrastructure.
           </p>
           <p>
-            With years across web, mobile and AI, I deliver fast without compromising
-            quality — backed by{" "}
-            <span className="text-foreground">100% on-time, 100% on-budget</span>{" "}
-            execution and a master's in computer science from the University of Oxford.
+            Years across AI, full-stack and data — I deliver production-grade
+            infrastructure backed by a master's in computer science from the
+            University of Oxford. Native <span className="text-foreground">Italian</span>,
+            fluent <span className="text-foreground">English</span>.
           </p>
         </div>
       </div>
@@ -654,7 +651,7 @@ function Reviews() {
                       <div className="text-xs text-muted-foreground">{r.project}</div>
                     </div>
                   </div>
-                  <div className="font-mono text-sm text-duck-glow">★ {r.rating}</div>
+                  <span className="font-mono text-xs uppercase tracking-[0.2em] text-duck-glow">Verified</span>
                 </div>
                 <blockquote className="mt-4 text-sm leading-relaxed text-muted-foreground">
                   "{r.text}"
