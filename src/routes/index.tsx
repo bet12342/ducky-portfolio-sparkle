@@ -346,17 +346,17 @@ function Hero() {
         <div className="rise">
           <div className="inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 text-xs uppercase tracking-[0.18em] text-muted-foreground">
             <span className="h-2 w-2 animate-pulse rounded-full bg-duck-glow shadow-glow" />
-            Available · Italy (CET)
+            Open to remote roles · Worldwide
           </div>
           <h1 className="mt-6 font-display text-5xl font-bold leading-[1.05] tracking-tight md:text-7xl">
-            Turning ideas into
+            AI & Coding
             <br />
-            <span className="text-gradient-duck">scalable products.</span>
+            <span className="text-gradient-duck">Infrastructure Engineer.</span>
           </h1>
           <p className="mt-6 max-w-xl text-lg text-muted-foreground">
-            I'm <span className="text-foreground">Pierfelice</span> — a full-stack developer
-            crafting <em>high-quality MVPs</em>, web & mobile apps, AI integrations and
-            data systems that ship and grow.
+            I'm <span className="text-foreground">Pierfelice</span> — I design and build
+            <em> AI infrastructure</em>, developer platforms and cloud-native systems
+            that ship to production and scale.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <a
@@ -370,15 +370,15 @@ function Hero() {
               href="#contact"
               className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 font-medium text-foreground transition hover:bg-secondary/60"
             >
-              Start a project
+              Hire me remotely
             </a>
           </div>
           <div className="mt-10 flex flex-wrap items-center gap-6 text-sm text-muted-foreground">
-            <Metric value="6+" label="Years building products" />
+            <Metric value="6+" label="Years building systems" />
             <Divider />
-            <Metric value="100%" label="On time · On budget" />
+            <Metric value="Remote" label="Worldwide · Any timezone" />
             <Divider />
-            <Metric value="4.8★" label="Average client rating" />
+            <Metric value="AI · Cloud" label="Infra · Platforms · Agents" />
           </div>
         </div>
 
