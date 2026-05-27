@@ -651,7 +651,7 @@ function Reviews() {
                       <div className="text-xs text-muted-foreground">{r.project}</div>
                     </div>
                   </div>
-                  <div className="font-mono text-sm text-duck-glow">★ {r.rating}</div>
+                  <span className="font-mono text-xs uppercase tracking-[0.2em] text-duck-glow">Verified</span>
                 </div>
                 <blockquote className="mt-4 text-sm leading-relaxed text-muted-foreground">
                   "{r.text}"
