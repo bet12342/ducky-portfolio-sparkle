@@ -95,41 +95,43 @@ const reviews = [
 
 const expertise = [
   {
-    title: "Web Applications",
-    desc: "Modern React / TypeScript front-ends paired with PHP & Node back-ends. Fast, accessible, SEO-ready.",
-    icon: "🌐",
+    title: "AI Infrastructure",
+    desc: "LLM serving, RAG pipelines, vector DBs, GPU orchestration and inference platforms designed to scale.",
+    icon: "🧠",
   },
   {
-    title: "Mobile Apps",
-    desc: "Polished Android and iOS apps — commerce, tracking, utilities — built for retention and store quality.",
-    icon: "📱",
+    title: "Developer Platforms",
+    desc: "Internal tooling, CI/CD, SDKs and DX-first APIs that let engineering teams ship faster.",
+    icon: "🛠️",
   },
   {
-    title: "AI & Agents",
-    desc: "Chatbots, AI dashboards and autonomous agents. Three years on Bittensor + custom LLM integrations.",
+    title: "Cloud & DevOps",
+    desc: "Kubernetes, Docker, Terraform and observability on AWS / GCP / Cloudflare — production-grade from day one.",
+    icon: "☁️",
+  },
+  {
+    title: "AI Agents",
+    desc: "Autonomous agents, tool-use orchestration and LLM workflows. Three years on Bittensor + custom stacks.",
     icon: "🤖",
   },
   {
+    title: "Full-Stack Engineering",
+    desc: "React / TypeScript front-ends with Node, PHP and Python services. End-to-end ownership.",
+    icon: "🌐",
+  },
+  {
     title: "Data Systems",
-    desc: "Scraping, data extraction and pipelines. MySQL design, CSV/JSON exports and real-time sync.",
+    desc: "Pipelines, scraping, MySQL/Postgres design, streaming and real-time sync across services.",
     icon: "📊",
-  },
-  {
-    title: "API Integration",
-    desc: "Third-party APIs, payments, auth, webhooks and custom REST/GraphQL endpoints.",
-    icon: "🔌",
-  },
-  {
-    title: "MVP Delivery",
-    desc: "From idea to shipped product — scoped, designed, built and deployed in days, not months.",
-    icon: "🚀",
   },
 ];
 
 const skills = [
-  "PHP", "JavaScript", "TypeScript", "React", "Android", "iOS",
-  "Mobile App Dev", "Website Design", "MySQL", "Web Scraping",
-  "Data Extraction", "AI Agents", "Bittensor", "API Integration",
+  "Python", "TypeScript", "Node.js", "React", "PHP",
+  "LLMs", "RAG", "Vector DBs", "AI Agents", "Bittensor",
+  "Docker", "Kubernetes", "AWS", "Cloudflare Workers",
+  "PostgreSQL", "MySQL", "Web Scraping", "API Design",
+  "Italian (Native)", "English (Fluent)",
 ];
 
 function PortfolioPage() {
