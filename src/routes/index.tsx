@@ -6,16 +6,16 @@ export const Route = createFileRoute("/")({
   component: PortfolioPage,
   head: () => ({
     meta: [
-      { title: "Pierfelice — Full-Stack & MVP Developer Portfolio" },
+      { title: "Pierfelice — AI & Coding Infrastructure Engineer (Remote)" },
       {
         name: "description",
         content:
-          "Pierfelice — Italy-based full-stack developer. Web, mobile, AI integrations and data systems. MVPs delivered on time, on budget.",
+          "Pierfelice — AI & Coding Infrastructure Engineer. Building scalable AI systems, developer platforms and cloud infrastructure. Open to remote roles worldwide.",
       },
-      { property: "og:title", content: "Pierfelice — Full-Stack & MVP Developer" },
+      { property: "og:title", content: "Pierfelice — AI & Coding Infrastructure Engineer" },
       {
         property: "og:description",
-        content: "Turning ideas into scalable products. MVPs, apps, AI, and data systems.",
+        content: "Designing AI infrastructure, dev platforms and cloud-native systems. Remote, worldwide.",
       },
     ],
   }),
