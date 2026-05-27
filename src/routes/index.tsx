@@ -58,15 +58,13 @@ const reviews = [
   {
     name: "Gianluca A.",
     flag: "🇮🇹",
-    rating: 5.0,
-    text: "Excellent work. Competent guy, always available. He advised me and built the project exactly as I wanted. I'll definitely entrust him with my next projects.",
+    text: "Excellent work. Competent engineer, always available. He advised me and built the project exactly as I wanted. I'll definitely entrust him with my next projects.",
     project: "Telegram Meme Token Trading Bot",
     img: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=900&q=70",
   },
   {
     name: "Samir H.",
     flag: "🇺🇸",
-    rating: 5.0,
     text: "Great communication, honest person, provided excellent work as promised. A+",
     project: "Betfair Racing Data CSV Export",
     img: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=70",
@@ -74,7 +72,6 @@ const reviews = [
   {
     name: "Pietro D.",
     flag: "🇮🇹",
-    rating: 5.0,
     text: "Second project I've trusted him with — already booked a third. Understands everything without too many questions. Very good.",
     project: "Video & Mobile App Edits",
     img: "https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?auto=format&fit=crop&w=900&q=70",
@@ -82,7 +79,6 @@ const reviews = [
   {
     name: "Pietro D.",
     flag: "🇮🇹",
-    rating: 4.4,
     text: "Received the brief and built a perfect job almost without asking anything more. Uncommon. Great intelligence, comprehension, creativity and mental order. Serious and professional.",
     project: "Reverse Engineering Mobile App",
     img: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=900&q=70",
@@ -90,7 +86,6 @@ const reviews = [
   {
     name: "Max A.",
     flag: "🇮🇹",
-    rating: 4.4,
     text: "Completed the work as requested, based on the instructions provided.",
     project: "QR-Based Security Door Maintenance System",
     img: "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=900&q=70",
