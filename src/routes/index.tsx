@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
+import portrait from "@/assets/pierfelice.png";
 
 export const Route = createFileRoute("/")({
   component: PortfolioPage,
@@ -141,7 +142,7 @@ function PortfolioPage() {
     <div className="relative min-h-screen overflow-x-hidden bg-background text-foreground">
       <Nav />
       <Hero />
-      <Stats />
+      
       <About />
       <Expertise />
       <Skills />
@@ -388,27 +389,29 @@ function Hero() {
           <div className="absolute -inset-6 rounded-3xl bg-duck-gradient opacity-40 blur-2xl" />
           <div className="relative overflow-hidden rounded-3xl glass shadow-card">
             <div className="relative aspect-[4/5] overflow-hidden">
-              <div
-                className="absolute inset-0"
-                style={{ background: "var(--gradient-iris)" }}
+              <img
+                src={portrait}
+                alt="Pierfelice — Full-Stack & AI Engineer"
+                className="absolute inset-0 h-full w-full object-cover"
+                loading="eager"
               />
-              <div className="absolute inset-0 noise" />
-              <div className="absolute inset-0 grid place-items-center">
-                <div className="relative h-72 w-72">
-                  <svg viewBox="0 0 200 200" className="absolute inset-0 h-full w-full spin-slow">
-                    <defs>
-                      <path id="circ" d="M100,100 m-86,0 a86,86 0 1,1 172,0 a86,86 0 1,1 -172,0" />
-                    </defs>
-                    <text fill="oklch(0.96 0.02 180)" fontSize="10" letterSpacing="6">
-                      <textPath href="#circ">
-                        AI ENGINEER · CODING · FULL-STACK · MVP · AGENTS · MOBILE · 
-                      </textPath>
-                    </text>
-                  </svg>
-                  <AICodingMark className="absolute inset-4" />
-                </div>
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/80 via-background/10 to-transparent" />
+              <div className="pointer-events-none absolute inset-0 noise opacity-40" />
+              <div className="pointer-events-none absolute -right-4 -top-4 h-28 w-28 opacity-90">
+                <AICodingMark className="h-full w-full" />
               </div>
-
+              <div className="pointer-events-none absolute inset-0">
+                <svg viewBox="0 0 200 200" className="absolute left-1/2 top-1/2 h-[120%] w-[120%] -translate-x-1/2 -translate-y-1/2 spin-slow opacity-30">
+                  <defs>
+                    <path id="circ" d="M100,100 m-86,0 a86,86 0 1,1 172,0 a86,86 0 1,1 -172,0" />
+                  </defs>
+                  <text fill="oklch(0.96 0.02 180)" fontSize="7" letterSpacing="6">
+                    <textPath href="#circ">
+                      AI ENGINEER · CODING · FULL-STACK · MVP · AGENTS · MOBILE · 
+                    </textPath>
+                  </text>
+                </svg>
+              </div>
             </div>
             <div className="flex items-center justify-between border-t border-border/60 px-5 py-4 text-xs">
               <span className="font-mono text-muted-foreground">Full-Stack Developer</span>
