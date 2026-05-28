@@ -22,109 +22,32 @@ export const Route = createFileRoute("/")({
   }),
 });
 
-const projects = [
-  {
-    title: "Site Initial Page Redesign",
-    tag: "Web · UI",
-    desc: "Client needed a complete landing page redesign in a very short time. Delivered in just 4 hours — bold typography, sharp hierarchy, conversion-first layout.",
-    img: "https://cdn5.f-cdn.com/files/download/291549977/gemini-2-5-flash-image_give_me.jpg?fit=crop&image-optimizer=force&format=webply&width=894&height=672",
-  },
-  {
-    title: "AI Chatbot Integration with Site",
-    tag: "AI · SaaS",
-    desc: "Admin dashboard for an AI chatbot platform — managing intents, messages and automation flows. Modular UI built for real-world conversational AI.",
-    img: "https://cdn2.f-cdn.com/files/download/291549785/gemini-2-5-flash-image_give_me.jpg?fit=crop&image-optimizer=force&format=webply&width=894&height=672",
-  },
-  {
-    title: "Android Shopping App",
-    tag: "Mobile · Android",
-    desc: "Production Android commerce app focused on UI polish and user attention. Ongoing client engagement — built for retention.",
-    img: "https://cdn2.f-cdn.com/files/download/291549279/android.jpg?fit=crop&image-optimizer=force&format=webply&width=894&height=672",
-  },
-  {
-    title: "AI Mining Experience",
-    tag: "AI · Agents",
-    desc: "Three years of Bittensor work — AI agents, data control and API integration at scale across multiple deployments.",
-    img: "https://cdn3.f-cdn.com/files/download/291549493/gemini-2-5-flash-image_now_giv.jpg?fit=crop&image-optimizer=force&format=webply&width=894&height=672",
-  },
-  {
-    title: "Real-time Order Tracking with Status",
-    tag: "Full-Stack",
-    desc: "End-to-end product management: drag-and-drop uploads, client-side compression, color-coded stock and live status updates wired into PHP + MySQL.",
-    img: "https://cdn6.f-cdn.com/files/download/290337370/223.png?fit=crop&image-optimizer=force&format=webply&width=894&height=672",
-  },
+type ProjectItem = { tKey: DictKey; dKey: DictKey; tag: string; img: string };
+const projects: ProjectItem[] = [
+  { tKey: "p1_t", dKey: "p1_d", tag: "Web · UI", img: "https://cdn5.f-cdn.com/files/download/291549977/gemini-2-5-flash-image_give_me.jpg?fit=crop&image-optimizer=force&format=webply&width=894&height=672" },
+  { tKey: "p2_t", dKey: "p2_d", tag: "AI · SaaS", img: "https://cdn2.f-cdn.com/files/download/291549785/gemini-2-5-flash-image_give_me.jpg?fit=crop&image-optimizer=force&format=webply&width=894&height=672" },
+  { tKey: "p3_t", dKey: "p3_d", tag: "Mobile · Android", img: "https://cdn2.f-cdn.com/files/download/291549279/android.jpg?fit=crop&image-optimizer=force&format=webply&width=894&height=672" },
+  { tKey: "p4_t", dKey: "p4_d", tag: "AI · Agents", img: "https://cdn3.f-cdn.com/files/download/291549493/gemini-2-5-flash-image_now_giv.jpg?fit=crop&image-optimizer=force&format=webply&width=894&height=672" },
+  { tKey: "p5_t", dKey: "p5_d", tag: "Full-Stack", img: "https://cdn6.f-cdn.com/files/download/290337370/223.png?fit=crop&image-optimizer=force&format=webply&width=894&height=672" },
 ];
 
-const reviews = [
-  {
-    name: "Gianluca A.",
-    flag: "🇮🇹",
-    text: "Excellent work. Competent engineer, always available. He advised me and built the project exactly as I wanted. I'll definitely entrust him with my next projects.",
-    project: "Telegram Meme Token Trading Bot",
-    img: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=900&q=70",
-  },
-  {
-    name: "Samir H.",
-    flag: "🇺🇸",
-    text: "Great communication, honest person, provided excellent work as promised. A+",
-    project: "Betfair Racing Data CSV Export",
-    img: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=70",
-  },
-  {
-    name: "Pietro D.",
-    flag: "🇮🇹",
-    text: "Second project I've trusted him with — already booked a third. Understands everything without too many questions. Very good.",
-    project: "Video & Mobile App Edits",
-    img: "https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?auto=format&fit=crop&w=900&q=70",
-  },
-  {
-    name: "Pietro D.",
-    flag: "🇮🇹",
-    text: "Received the brief and built a perfect job almost without asking anything more. Uncommon. Great intelligence, comprehension, creativity and mental order. Serious and professional.",
-    project: "Reverse Engineering Mobile App",
-    img: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=900&q=70",
-  },
-  {
-    name: "Max A.",
-    flag: "🇮🇹",
-    text: "Completed the work as requested, based on the instructions provided.",
-    project: "QR-Based Security Door Maintenance System",
-    img: "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=900&q=70",
-  },
+type ReviewItem = { name: string; flag: string; textKey: DictKey; projKey: DictKey; img: string };
+const reviews: ReviewItem[] = [
+  { name: "Gianluca A.", flag: "🇮🇹", textKey: "r1_text", projKey: "r1_proj", img: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=900&q=70" },
+  { name: "Samir H.", flag: "🇺🇸", textKey: "r2_text", projKey: "r2_proj", img: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=70" },
+  { name: "Pietro D.", flag: "🇮🇹", textKey: "r3_text", projKey: "r3_proj", img: "https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?auto=format&fit=crop&w=900&q=70" },
+  { name: "Pietro D.", flag: "🇮🇹", textKey: "r4_text", projKey: "r4_proj", img: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=900&q=70" },
+  { name: "Max A.", flag: "🇮🇹", textKey: "r5_text", projKey: "r5_proj", img: "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=900&q=70" },
 ];
 
-
-const expertise = [
-  {
-    title: "AI Infrastructure",
-    desc: "LLM serving, RAG pipelines, vector DBs, GPU orchestration and inference platforms designed to scale.",
-    icon: "🧠",
-  },
-  {
-    title: "Developer Platforms",
-    desc: "Internal tooling, CI/CD, SDKs and DX-first APIs that let engineering teams ship faster.",
-    icon: "🛠️",
-  },
-  {
-    title: "Cloud & DevOps",
-    desc: "Kubernetes, Docker, Terraform and observability on AWS / GCP / Cloudflare — production-grade from day one.",
-    icon: "☁️",
-  },
-  {
-    title: "AI Agents",
-    desc: "Autonomous agents, tool-use orchestration and LLM workflows. Three years on Bittensor + custom stacks.",
-    icon: "🤖",
-  },
-  {
-    title: "Full-Stack Engineering",
-    desc: "React / TypeScript front-ends with Node, PHP and Python services. End-to-end ownership.",
-    icon: "🌐",
-  },
-  {
-    title: "Data Systems",
-    desc: "Pipelines, scraping, MySQL/Postgres design, streaming and real-time sync across services.",
-    icon: "📊",
-  },
+type ExpertiseItem = { tKey: DictKey; dKey: DictKey; icon: string };
+const expertise: ExpertiseItem[] = [
+  { tKey: "exp1_t", dKey: "exp1_d", icon: "🧠" },
+  { tKey: "exp2_t", dKey: "exp2_d", icon: "🛠️" },
+  { tKey: "exp3_t", dKey: "exp3_d", icon: "☁️" },
+  { tKey: "exp4_t", dKey: "exp4_d", icon: "🤖" },
+  { tKey: "exp5_t", dKey: "exp5_d", icon: "🌐" },
+  { tKey: "exp6_t", dKey: "exp6_d", icon: "📊" },
 ];
 
 const skills = [
