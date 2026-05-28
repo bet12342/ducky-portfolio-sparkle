@@ -60,18 +60,47 @@ const skills = [
 
 function PortfolioPage() {
   return (
-    <div className="relative min-h-screen overflow-x-hidden bg-background text-foreground">
-      <Nav />
-      <Hero />
-      
-      <About />
-      <Expertise />
-      <Skills />
-      <Projects />
-      <Reviews />
-      <Experience />
-      <Contact />
-      <Footer />
+    <LanguageProvider>
+      <div className="relative min-h-screen overflow-x-hidden bg-background text-foreground">
+        <Nav />
+        <Hero />
+        <About />
+        <Expertise />
+        <Skills />
+        <Projects />
+        <Reviews />
+        <Experience />
+        <Contact />
+        <Footer />
+      </div>
+    </LanguageProvider>
+  );
+}
+
+function LangToggle({ compact = false }: { compact?: boolean }) {
+  const { lang, setLang } = useLang();
+  return (
+    <div className={`inline-flex items-center gap-0.5 rounded-full glass p-0.5 ${compact ? "text-[11px]" : "text-xs"}`}>
+      <button
+        type="button"
+        onClick={() => setLang("en")}
+        aria-pressed={lang === "en"}
+        className={`rounded-full px-2.5 py-1 font-mono uppercase tracking-wider transition ${
+          lang === "en" ? "bg-duck-gradient text-duck-ink" : "text-muted-foreground hover:text-foreground"
+        }`}
+      >
+        EN
+      </button>
+      <button
+        type="button"
+        onClick={() => setLang("it")}
+        aria-pressed={lang === "it"}
+        className={`rounded-full px-2.5 py-1 font-mono uppercase tracking-wider transition ${
+          lang === "it" ? "bg-duck-gradient text-duck-ink" : "text-muted-foreground hover:text-foreground"
+        }`}
+      >
+        IT
+      </button>
     </div>
   );
 }
