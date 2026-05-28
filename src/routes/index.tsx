@@ -107,18 +107,26 @@ function LangToggle({ compact = false }: { compact?: boolean }) {
 
 function Nav() {
   const [scrolled, setScrolled] = useState(false);
+  const t = useT();
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+  const links: Array<{ key: DictKey; href: string }> = [
+    { key: "nav_about", href: "#about" },
+    { key: "nav_expertise", href: "#expertise" },
+    { key: "nav_work", href: "#work" },
+    { key: "nav_reviews", href: "#reviews" },
+    { key: "nav_contact", href: "#contact" },
+  ];
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
         scrolled ? "py-3" : "py-5"
       }`}
     >
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-6">
         <a href="#top" className="flex items-center gap-2">
           <DuckMark className="h-8 w-8" />
           <span className="font-display text-lg font-semibold tracking-tight">
@@ -130,22 +138,25 @@ function Nav() {
             scrolled ? "glass" : ""
           }`}
         >
-          {["About", "Expertise", "Work", "Reviews", "Contact"].map((l) => (
+          {links.map((l) => (
             <a
-              key={l}
-              href={`#${l.toLowerCase()}`}
+              key={l.key}
+              href={l.href}
               className="rounded-full px-4 py-1.5 text-muted-foreground transition hover:bg-secondary/60 hover:text-foreground"
             >
-              {l}
+              {t(l.key)}
             </a>
           ))}
         </nav>
-        <a
-          href="#contact"
-          className="rounded-full bg-duck-gradient px-5 py-2 text-sm font-medium text-duck-ink shadow-duck transition hover:scale-105"
-        >
-          Get in touch
-        </a>
+        <div className="flex items-center gap-2">
+          <LangToggle />
+          <a
+            href="#contact"
+            className="hidden rounded-full bg-duck-gradient px-5 py-2 text-sm font-medium text-duck-ink shadow-duck transition hover:scale-105 sm:inline-flex"
+          >
+            {t("nav_cta")}
+          </a>
+        </div>
       </div>
     </header>
   );
