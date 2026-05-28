@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import portrait from "@/assets/pierfelice.png";
+import { LanguageProvider, useLang, useT, type DictKey } from "@/lib/i18n";
 
 export const Route = createFileRoute("/")({
   component: PortfolioPage,
@@ -21,109 +22,32 @@ export const Route = createFileRoute("/")({
   }),
 });
 
-const projects = [
-  {
-    title: "Site Initial Page Redesign",
-    tag: "Web · UI",
-    desc: "Client needed a complete landing page redesign in a very short time. Delivered in just 4 hours — bold typography, sharp hierarchy, conversion-first layout.",
-    img: "https://cdn5.f-cdn.com/files/download/291549977/gemini-2-5-flash-image_give_me.jpg?fit=crop&image-optimizer=force&format=webply&width=894&height=672",
-  },
-  {
-    title: "AI Chatbot Integration with Site",
-    tag: "AI · SaaS",
-    desc: "Admin dashboard for an AI chatbot platform — managing intents, messages and automation flows. Modular UI built for real-world conversational AI.",
-    img: "https://cdn2.f-cdn.com/files/download/291549785/gemini-2-5-flash-image_give_me.jpg?fit=crop&image-optimizer=force&format=webply&width=894&height=672",
-  },
-  {
-    title: "Android Shopping App",
-    tag: "Mobile · Android",
-    desc: "Production Android commerce app focused on UI polish and user attention. Ongoing client engagement — built for retention.",
-    img: "https://cdn2.f-cdn.com/files/download/291549279/android.jpg?fit=crop&image-optimizer=force&format=webply&width=894&height=672",
-  },
-  {
-    title: "AI Mining Experience",
-    tag: "AI · Agents",
-    desc: "Three years of Bittensor work — AI agents, data control and API integration at scale across multiple deployments.",
-    img: "https://cdn3.f-cdn.com/files/download/291549493/gemini-2-5-flash-image_now_giv.jpg?fit=crop&image-optimizer=force&format=webply&width=894&height=672",
-  },
-  {
-    title: "Real-time Order Tracking with Status",
-    tag: "Full-Stack",
-    desc: "End-to-end product management: drag-and-drop uploads, client-side compression, color-coded stock and live status updates wired into PHP + MySQL.",
-    img: "https://cdn6.f-cdn.com/files/download/290337370/223.png?fit=crop&image-optimizer=force&format=webply&width=894&height=672",
-  },
+type ProjectItem = { tKey: DictKey; dKey: DictKey; tag: string; img: string };
+const projects: ProjectItem[] = [
+  { tKey: "p1_t", dKey: "p1_d", tag: "Web · UI", img: "https://cdn5.f-cdn.com/files/download/291549977/gemini-2-5-flash-image_give_me.jpg?fit=crop&image-optimizer=force&format=webply&width=894&height=672" },
+  { tKey: "p2_t", dKey: "p2_d", tag: "AI · SaaS", img: "https://cdn2.f-cdn.com/files/download/291549785/gemini-2-5-flash-image_give_me.jpg?fit=crop&image-optimizer=force&format=webply&width=894&height=672" },
+  { tKey: "p3_t", dKey: "p3_d", tag: "Mobile · Android", img: "https://cdn2.f-cdn.com/files/download/291549279/android.jpg?fit=crop&image-optimizer=force&format=webply&width=894&height=672" },
+  { tKey: "p4_t", dKey: "p4_d", tag: "AI · Agents", img: "https://cdn3.f-cdn.com/files/download/291549493/gemini-2-5-flash-image_now_giv.jpg?fit=crop&image-optimizer=force&format=webply&width=894&height=672" },
+  { tKey: "p5_t", dKey: "p5_d", tag: "Full-Stack", img: "https://cdn6.f-cdn.com/files/download/290337370/223.png?fit=crop&image-optimizer=force&format=webply&width=894&height=672" },
 ];
 
-const reviews = [
-  {
-    name: "Gianluca A.",
-    flag: "🇮🇹",
-    text: "Excellent work. Competent engineer, always available. He advised me and built the project exactly as I wanted. I'll definitely entrust him with my next projects.",
-    project: "Telegram Meme Token Trading Bot",
-    img: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=900&q=70",
-  },
-  {
-    name: "Samir H.",
-    flag: "🇺🇸",
-    text: "Great communication, honest person, provided excellent work as promised. A+",
-    project: "Betfair Racing Data CSV Export",
-    img: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=70",
-  },
-  {
-    name: "Pietro D.",
-    flag: "🇮🇹",
-    text: "Second project I've trusted him with — already booked a third. Understands everything without too many questions. Very good.",
-    project: "Video & Mobile App Edits",
-    img: "https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?auto=format&fit=crop&w=900&q=70",
-  },
-  {
-    name: "Pietro D.",
-    flag: "🇮🇹",
-    text: "Received the brief and built a perfect job almost without asking anything more. Uncommon. Great intelligence, comprehension, creativity and mental order. Serious and professional.",
-    project: "Reverse Engineering Mobile App",
-    img: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=900&q=70",
-  },
-  {
-    name: "Max A.",
-    flag: "🇮🇹",
-    text: "Completed the work as requested, based on the instructions provided.",
-    project: "QR-Based Security Door Maintenance System",
-    img: "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=900&q=70",
-  },
+type ReviewItem = { name: string; flag: string; textKey: DictKey; projKey: DictKey; img: string };
+const reviews: ReviewItem[] = [
+  { name: "Gianluca A.", flag: "🇮🇹", textKey: "r1_text", projKey: "r1_proj", img: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=900&q=70" },
+  { name: "Samir H.", flag: "🇺🇸", textKey: "r2_text", projKey: "r2_proj", img: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=70" },
+  { name: "Pietro D.", flag: "🇮🇹", textKey: "r3_text", projKey: "r3_proj", img: "https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?auto=format&fit=crop&w=900&q=70" },
+  { name: "Pietro D.", flag: "🇮🇹", textKey: "r4_text", projKey: "r4_proj", img: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=900&q=70" },
+  { name: "Max A.", flag: "🇮🇹", textKey: "r5_text", projKey: "r5_proj", img: "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=900&q=70" },
 ];
 
-
-const expertise = [
-  {
-    title: "AI Infrastructure",
-    desc: "LLM serving, RAG pipelines, vector DBs, GPU orchestration and inference platforms designed to scale.",
-    icon: "🧠",
-  },
-  {
-    title: "Developer Platforms",
-    desc: "Internal tooling, CI/CD, SDKs and DX-first APIs that let engineering teams ship faster.",
-    icon: "🛠️",
-  },
-  {
-    title: "Cloud & DevOps",
-    desc: "Kubernetes, Docker, Terraform and observability on AWS / GCP / Cloudflare — production-grade from day one.",
-    icon: "☁️",
-  },
-  {
-    title: "AI Agents",
-    desc: "Autonomous agents, tool-use orchestration and LLM workflows. Three years on Bittensor + custom stacks.",
-    icon: "🤖",
-  },
-  {
-    title: "Full-Stack Engineering",
-    desc: "React / TypeScript front-ends with Node, PHP and Python services. End-to-end ownership.",
-    icon: "🌐",
-  },
-  {
-    title: "Data Systems",
-    desc: "Pipelines, scraping, MySQL/Postgres design, streaming and real-time sync across services.",
-    icon: "📊",
-  },
+type ExpertiseItem = { tKey: DictKey; dKey: DictKey; icon: string };
+const expertise: ExpertiseItem[] = [
+  { tKey: "exp1_t", dKey: "exp1_d", icon: "🧠" },
+  { tKey: "exp2_t", dKey: "exp2_d", icon: "🛠️" },
+  { tKey: "exp3_t", dKey: "exp3_d", icon: "☁️" },
+  { tKey: "exp4_t", dKey: "exp4_d", icon: "🤖" },
+  { tKey: "exp5_t", dKey: "exp5_d", icon: "🌐" },
+  { tKey: "exp6_t", dKey: "exp6_d", icon: "📊" },
 ];
 
 const skills = [
@@ -136,36 +60,73 @@ const skills = [
 
 function PortfolioPage() {
   return (
-    <div className="relative min-h-screen overflow-x-hidden bg-background text-foreground">
-      <Nav />
-      <Hero />
-      
-      <About />
-      <Expertise />
-      <Skills />
-      <Projects />
-      <Reviews />
-      <Experience />
-      <Contact />
-      <Footer />
+    <LanguageProvider>
+      <div className="relative min-h-screen overflow-x-hidden bg-background text-foreground">
+        <Nav />
+        <Hero />
+        <About />
+        <Expertise />
+        <Skills />
+        <Projects />
+        <Reviews />
+        <Experience />
+        <Contact />
+        <Footer />
+      </div>
+    </LanguageProvider>
+  );
+}
+
+function LangToggle({ compact = false }: { compact?: boolean }) {
+  const { lang, setLang } = useLang();
+  return (
+    <div className={`inline-flex items-center gap-0.5 rounded-full glass p-0.5 ${compact ? "text-[11px]" : "text-xs"}`}>
+      <button
+        type="button"
+        onClick={() => setLang("en")}
+        aria-pressed={lang === "en"}
+        className={`rounded-full px-2.5 py-1 font-mono uppercase tracking-wider transition ${
+          lang === "en" ? "bg-duck-gradient text-duck-ink" : "text-muted-foreground hover:text-foreground"
+        }`}
+      >
+        EN
+      </button>
+      <button
+        type="button"
+        onClick={() => setLang("it")}
+        aria-pressed={lang === "it"}
+        className={`rounded-full px-2.5 py-1 font-mono uppercase tracking-wider transition ${
+          lang === "it" ? "bg-duck-gradient text-duck-ink" : "text-muted-foreground hover:text-foreground"
+        }`}
+      >
+        IT
+      </button>
     </div>
   );
 }
 
 function Nav() {
   const [scrolled, setScrolled] = useState(false);
+  const t = useT();
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+  const links: Array<{ key: DictKey; href: string }> = [
+    { key: "nav_about", href: "#about" },
+    { key: "nav_expertise", href: "#expertise" },
+    { key: "nav_work", href: "#work" },
+    { key: "nav_reviews", href: "#reviews" },
+    { key: "nav_contact", href: "#contact" },
+  ];
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
         scrolled ? "py-3" : "py-5"
       }`}
     >
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-6">
         <a href="#top" className="flex items-center gap-2">
           <DuckMark className="h-8 w-8" />
           <span className="font-display text-lg font-semibold tracking-tight">
@@ -177,22 +138,25 @@ function Nav() {
             scrolled ? "glass" : ""
           }`}
         >
-          {["About", "Expertise", "Work", "Reviews", "Contact"].map((l) => (
+          {links.map((l) => (
             <a
-              key={l}
-              href={`#${l.toLowerCase()}`}
+              key={l.key}
+              href={l.href}
               className="rounded-full px-4 py-1.5 text-muted-foreground transition hover:bg-secondary/60 hover:text-foreground"
             >
-              {l}
+              {t(l.key)}
             </a>
           ))}
         </nav>
-        <a
-          href="#contact"
-          className="rounded-full bg-duck-gradient px-5 py-2 text-sm font-medium text-duck-ink shadow-duck transition hover:scale-105"
-        >
-          Get in touch
-        </a>
+        <div className="flex items-center gap-2">
+          <LangToggle />
+          <a
+            href="#contact"
+            className="hidden rounded-full bg-duck-gradient px-5 py-2 text-sm font-medium text-duck-ink shadow-duck transition hover:scale-105 sm:inline-flex"
+          >
+            {t("nav_cta")}
+          </a>
+        </div>
       </div>
     </header>
   );
@@ -313,6 +277,7 @@ function AICodingMark({ className = "" }: { className?: string }) {
 function Hero() {
   const ref = useRef<HTMLDivElement>(null);
   const [pos, setPos] = useState({ x: 0, y: 0 });
+  const t = useT();
   return (
     <section
       id="top"
@@ -346,39 +311,35 @@ function Hero() {
         <div className="rise">
           <div className="inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 text-xs uppercase tracking-[0.18em] text-muted-foreground">
             <span className="h-2 w-2 animate-pulse rounded-full bg-duck-glow shadow-glow" />
-            Open to remote roles · Worldwide
+            {t("hero_badge")}
           </div>
           <h1 className="mt-6 font-display text-5xl font-bold leading-[1.05] tracking-tight md:text-7xl">
-            AI & Coding
+            {t("hero_title_1")}
             <br />
-            <span className="text-gradient-duck">Infrastructure Engineer.</span>
+            <span className="text-gradient-duck">{t("hero_title_2")}</span>
           </h1>
-          <p className="mt-6 max-w-xl text-lg text-muted-foreground">
-            I'm <span className="text-foreground">Pierfelice</span> — I design and build
-            <em> AI infrastructure</em>, developer platforms and cloud-native systems
-            that ship to production and scale.
-          </p>
+          <p className="mt-6 max-w-xl text-lg text-muted-foreground">{t("hero_desc")}</p>
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <a
               href="#work"
               className="group inline-flex items-center gap-2 rounded-full bg-duck-gradient px-6 py-3 font-medium text-duck-ink shadow-duck transition hover:scale-[1.03]"
             >
-              View selected work
+              {t("hero_cta_work")}
               <span className="transition group-hover:translate-x-1">→</span>
             </a>
             <a
               href="#contact"
               className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 font-medium text-foreground transition hover:bg-secondary/60"
             >
-              Hire me remotely
+              {t("hero_cta_hire")}
             </a>
           </div>
           <div className="mt-10 flex flex-wrap items-center gap-6 text-sm text-muted-foreground">
-            <Metric value="6+" label="Years building systems" />
+            <Metric value={t("hero_m1_v")} label={t("hero_m1_l")} />
             <Divider />
-            <Metric value="Remote" label="Worldwide · Any timezone" />
+            <Metric value={t("hero_m2_v")} label={t("hero_m2_l")} />
             <Divider />
-            <Metric value="AI · Cloud" label="Infra · Platforms · Agents" />
+            <Metric value={t("hero_m3_v")} label={t("hero_m3_l")} />
           </div>
         </div>
 
@@ -388,7 +349,7 @@ function Hero() {
             <div className="relative aspect-[4/5] overflow-hidden">
               <img
                 src={portrait}
-                alt="Pierfelice — Full-Stack & AI Engineer"
+                alt="Pierfelice — AI & Coding Infrastructure Engineer"
                 className="absolute inset-0 h-full w-full object-cover"
                 loading="eager"
               />
@@ -411,9 +372,9 @@ function Hero() {
               </div>
             </div>
             <div className="flex items-center justify-between border-t border-border/60 px-5 py-4 text-xs">
-              <span className="font-mono text-muted-foreground">AI & Coding Infra Engineer</span>
+              <span className="font-mono text-muted-foreground">{t("hero_role")}</span>
               <span className="rounded-full bg-duck/20 px-2 py-0.5 text-duck-glow">
-                Remote · Worldwide
+                {t("hero_badge_remote")}
               </span>
             </div>
           </div>
@@ -465,28 +426,19 @@ function Stats() {
 }
 
 function About() {
+  const t = useT();
   return (
     <section id="about" className="relative py-28">
       <div className="mx-auto grid max-w-6xl gap-12 px-6 lg:grid-cols-[1fr_2fr]">
         <div>
-          <SectionLabel>01 · About</SectionLabel>
+          <SectionLabel>{t("about_label")}</SectionLabel>
           <h2 className="mt-3 font-display text-4xl font-bold md:text-5xl">
-            A digital creator who <span className="text-gradient-duck">ships</span>.
+            {t("about_title_1")} <span className="text-gradient-duck">{t("about_title_2")}</span>{t("about_title_3")}
           </h2>
         </div>
         <div className="space-y-6 text-lg leading-relaxed text-muted-foreground">
-          <p>
-            Hi, I'm <span className="text-foreground">Pierfelice</span> — an AI & Coding
-            Infrastructure Engineer based in Italy, working <span className="text-foreground">remotely</span> with
-            teams worldwide. I design the systems behind AI products: inference
-            platforms, agent runtimes, developer tooling and cloud infrastructure.
-          </p>
-          <p>
-            Years across AI, full-stack and data — I deliver production-grade
-            infrastructure backed by a master's in computer science from the
-            University of Oxford. Native <span className="text-foreground">Italian</span>,
-            fluent <span className="text-foreground">English</span>.
-          </p>
+          <p>{t("about_p1")}</p>
+          <p>{t("about_p2")}</p>
         </div>
       </div>
     </section>
@@ -503,29 +455,30 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 }
 
 function Expertise() {
+  const t = useT();
   return (
     <section id="expertise" className="relative py-28">
       <div className="mx-auto max-w-6xl px-6">
         <div className="flex items-end justify-between gap-6">
           <div>
-            <SectionLabel>02 · Expertise</SectionLabel>
+            <SectionLabel>{t("exp_label")}</SectionLabel>
             <h2 className="mt-3 font-display text-4xl font-bold md:text-5xl">
-              What I <span className="text-gradient-duck">do best</span>
+              {t("exp_title_1")} <span className="text-gradient-duck">{t("exp_title_2")}</span>
             </h2>
           </div>
           <p className="hidden max-w-sm text-sm text-muted-foreground md:block">
-            Six core areas where I deliver production-ready work.
+            {t("exp_subtitle")}
           </p>
         </div>
         <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {expertise.map((e) => (
             <div
-              key={e.title}
+              key={e.tKey}
               className="group relative overflow-hidden rounded-2xl glass p-6 transition hover:-translate-y-1 hover:shadow-duck"
             >
               <div className="text-3xl">{e.icon}</div>
-              <h3 className="mt-4 font-display text-xl font-semibold">{e.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{e.desc}</p>
+              <h3 className="mt-4 font-display text-xl font-semibold">{t(e.tKey)}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{t(e.dKey)}</p>
               <div
                 className="pointer-events-none absolute -right-12 -top-12 h-32 w-32 rounded-full opacity-0 blur-2xl transition group-hover:opacity-40"
                 style={{ background: "var(--gradient-duck)" }}
@@ -539,12 +492,13 @@ function Expertise() {
 }
 
 function Skills() {
+  const t = useT();
   return (
     <section className="relative py-20">
       <div className="mx-auto max-w-6xl px-6">
-        <SectionLabel>03 · Stack</SectionLabel>
+        <SectionLabel>{t("skills_label")}</SectionLabel>
         <h2 className="mt-3 font-display text-4xl font-bold md:text-5xl">
-          Tools of the trade
+          {t("skills_title")}
         </h2>
         <div className="mt-10 flex flex-wrap gap-3">
           {skills.map((s, i) => (
@@ -563,25 +517,26 @@ function Skills() {
 }
 
 function Projects() {
+  const t = useT();
   return (
     <section id="work" className="relative py-28">
       <div className="mx-auto max-w-6xl px-6">
         <div className="flex items-end justify-between gap-6">
           <div>
-            <SectionLabel>04 · Selected work</SectionLabel>
+            <SectionLabel>{t("proj_label")}</SectionLabel>
             <h2 className="mt-3 font-display text-4xl font-bold md:text-5xl">
-              Recent <span className="text-gradient-duck">projects</span>
+              {t("proj_title_1")} <span className="text-gradient-duck">{t("proj_title_2")}</span>
             </h2>
           </div>
           <p className="hidden max-w-sm text-sm text-muted-foreground md:block">
-            A handful of shipped builds across web, mobile, AI and data systems.
+            {t("proj_subtitle")}
           </p>
         </div>
 
         <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {projects.map((p, i) => (
             <article
-              key={p.title}
+              key={p.tKey}
               className={`group relative overflow-hidden rounded-3xl glass shadow-card transition duration-500 hover:-translate-y-2 hover:shadow-duck ${
                 i === 0 ? "lg:col-span-2 lg:row-span-1" : ""
               }`}
@@ -589,7 +544,7 @@ function Projects() {
               <div className="relative aspect-[4/3] overflow-hidden">
                 <img
                   src={p.img}
-                  alt={p.title}
+                  alt={t(p.tKey)}
                   loading="lazy"
                   className="h-full w-full object-cover transition duration-700 group-hover:scale-110"
                 />
@@ -599,8 +554,8 @@ function Projects() {
                 </span>
               </div>
               <div className="relative p-6">
-                <h3 className="font-display text-xl font-semibold">{p.title}</h3>
-                <p className="mt-2 line-clamp-3 text-sm text-muted-foreground">{p.desc}</p>
+                <h3 className="font-display text-xl font-semibold">{t(p.tKey)}</h3>
+                <p className="mt-2 line-clamp-3 text-sm text-muted-foreground">{t(p.dKey)}</p>
               </div>
             </article>
           ))}
@@ -611,6 +566,7 @@ function Projects() {
 }
 
 function Reviews() {
+  const t = useT();
   return (
     <section id="reviews" className="relative overflow-hidden py-28">
       <div
@@ -618,24 +574,24 @@ function Reviews() {
         style={{ background: "var(--gradient-duck)" }}
       />
       <div className="mx-auto max-w-6xl px-6">
-        <SectionLabel>05 · Voices</SectionLabel>
+        <SectionLabel>{t("rev_label")}</SectionLabel>
         <h2 className="mt-3 font-display text-4xl font-bold md:text-5xl">
-          What clients <span className="text-gradient-duck">say</span>
+          {t("rev_title_1")} <span className="text-gradient-duck">{t("rev_title_2")}</span>
         </h2>
 
         <div className="mt-12 columns-1 gap-6 md:columns-2 lg:columns-3 [&>*]:mb-6 [&>*]:break-inside-avoid">
           {reviews.map((r) => (
-            <figure key={r.project} className="group overflow-hidden rounded-2xl glass shadow-card transition hover:-translate-y-1 hover:shadow-duck">
+            <figure key={r.projKey} className="group overflow-hidden rounded-2xl glass shadow-card transition hover:-translate-y-1 hover:shadow-duck">
               <div className="relative aspect-[16/9] overflow-hidden">
                 <img
                   src={r.img}
-                  alt={r.project}
+                  alt={t(r.projKey)}
                   loading="lazy"
                   className="h-full w-full object-cover transition duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-duck-ink via-duck-ink/50 to-transparent" />
                 <span className="absolute left-3 top-3 rounded-full bg-duck-ink/70 px-3 py-1 text-[11px] font-medium text-duck-glow backdrop-blur">
-                  {r.project}
+                  {t(r.projKey)}
                 </span>
               </div>
               <div className="p-6">
@@ -648,13 +604,13 @@ function Reviews() {
                       <div className="font-medium text-foreground">
                         {r.name} <span className="ml-1">{r.flag}</span>
                       </div>
-                      <div className="text-xs text-muted-foreground">{r.project}</div>
+                      <div className="text-xs text-muted-foreground">{t(r.projKey)}</div>
                     </div>
                   </div>
-                  <span className="font-mono text-xs uppercase tracking-[0.2em] text-duck-glow">Verified</span>
+                  <span className="font-mono text-xs uppercase tracking-[0.2em] text-duck-glow">{t("rev_verified")}</span>
                 </div>
                 <blockquote className="mt-4 text-sm leading-relaxed text-muted-foreground">
-                  "{r.text}"
+                  "{t(r.textKey)}"
                 </blockquote>
               </div>
             </figure>
@@ -666,32 +622,33 @@ function Reviews() {
 }
 
 function Experience() {
+  const t = useT();
   return (
     <section className="relative py-20">
       <div className="mx-auto max-w-6xl px-6">
-        <SectionLabel>06 · Background</SectionLabel>
+        <SectionLabel>{t("bg_label")}</SectionLabel>
         <div className="mt-8 grid gap-6 md:grid-cols-2">
           <div className="rounded-2xl glass p-8 shadow-card">
             <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
-              Education
+              {t("bg_edu")}
             </div>
             <h3 className="mt-3 font-display text-2xl font-semibold">
-              University of Oxford 🇬🇧
+              {t("bg_edu_school")}
             </h3>
             <p className="mt-1 text-muted-foreground">
-              Degree + Master in Computer Science
+              {t("bg_edu_deg")}
             </p>
-            <p className="mt-1 font-mono text-sm text-duck-glow">2017 — 2021 · 4 years</p>
+            <p className="mt-1 font-mono text-sm text-duck-glow">{t("bg_edu_years")}</p>
           </div>
           <div className="rounded-2xl glass p-8 shadow-card">
             <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
-              Certification
+              {t("bg_cert")}
             </div>
             <h3 className="mt-3 font-display text-2xl font-semibold">
-              Preferred Freelancer Program SLA
+              {t("bg_cert_t")}
             </h3>
             <p className="mt-1 text-muted-foreground">
-              Verified · Level 4 · Top-tier reliability badge
+              {t("bg_cert_d")}
             </p>
           </div>
         </div>
@@ -701,6 +658,7 @@ function Experience() {
 }
 
 function Contact() {
+  const t = useT();
   return (
     <section id="contact" className="relative py-28">
       <div className="mx-auto max-w-4xl px-6">
@@ -709,26 +667,26 @@ function Contact() {
             className="absolute -inset-1 -z-10 rounded-3xl opacity-30 blur-2xl"
             style={{ background: "var(--gradient-duck)" }}
           />
-          <SectionLabel>07 · Let's build</SectionLabel>
+          <SectionLabel>{t("contact_label")}</SectionLabel>
           <h2 className="mt-4 font-display text-4xl font-bold md:text-6xl">
-            Have an idea? <br />
-            <span className="text-gradient-duck">Let's make it real.</span>
+            {t("contact_title_1")} <br />
+            <span className="text-gradient-duck">{t("contact_title_2")}</span>
           </h2>
           <p className="mx-auto mt-4 max-w-md text-muted-foreground">
-            Open to MVPs, full apps, AI integrations and data projects. Reply within 24h.
+            {t("contact_desc")}
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <a
-              href="mailto:hello@pierfelice.dev"
+              href="mailto:pierwork28@gmail.com"
               className="rounded-full bg-duck-gradient px-7 py-3 font-medium text-duck-ink shadow-duck transition hover:scale-105"
             >
-              hello@pierfelice.dev
+              pierwork28@gmail.com
             </a>
             <a
               href="#work"
               className="rounded-full border border-border px-7 py-3 font-medium transition hover:bg-secondary/60"
             >
-              See my work
+              {t("contact_cta_work")}
             </a>
           </div>
         </div>
@@ -738,15 +696,16 @@ function Contact() {
 }
 
 function Footer() {
+  const t = useT();
   return (
     <footer className="border-t border-border/50 py-10">
       <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 text-sm text-muted-foreground md:flex-row">
         <div className="flex items-center gap-2">
           <DuckMark className="h-6 w-6" />
-          <span>© {new Date().getFullYear()} Pierfelice · Full-Stack Developer</span>
+          <span>© {new Date().getFullYear()} Pierfelice · {t("footer_role")}</span>
         </div>
         <div className="font-mono text-xs uppercase tracking-[0.2em]">
-          Crafted in Italy · Built to last
+          {t("footer_tag")}
         </div>
       </div>
     </footer>
