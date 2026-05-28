@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import portrait from "@/assets/pierfelice.png";
+import { LanguageProvider, useLang, useT, type DictKey } from "@/lib/i18n";
 
 export const Route = createFileRoute("/")({
   component: PortfolioPage,
