@@ -277,6 +277,7 @@ function AICodingMark({ className = "" }: { className?: string }) {
 function Hero() {
   const ref = useRef<HTMLDivElement>(null);
   const [pos, setPos] = useState({ x: 0, y: 0 });
+  const t = useT();
   return (
     <section
       id="top"
@@ -310,39 +311,35 @@ function Hero() {
         <div className="rise">
           <div className="inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 text-xs uppercase tracking-[0.18em] text-muted-foreground">
             <span className="h-2 w-2 animate-pulse rounded-full bg-duck-glow shadow-glow" />
-            Open to remote roles · Worldwide
+            {t("hero_badge")}
           </div>
           <h1 className="mt-6 font-display text-5xl font-bold leading-[1.05] tracking-tight md:text-7xl">
-            AI & Coding
+            {t("hero_title_1")}
             <br />
-            <span className="text-gradient-duck">Infrastructure Engineer.</span>
+            <span className="text-gradient-duck">{t("hero_title_2")}</span>
           </h1>
-          <p className="mt-6 max-w-xl text-lg text-muted-foreground">
-            I'm <span className="text-foreground">Pierfelice</span> — I design and build
-            <em> AI infrastructure</em>, developer platforms and cloud-native systems
-            that ship to production and scale.
-          </p>
+          <p className="mt-6 max-w-xl text-lg text-muted-foreground">{t("hero_desc")}</p>
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <a
               href="#work"
               className="group inline-flex items-center gap-2 rounded-full bg-duck-gradient px-6 py-3 font-medium text-duck-ink shadow-duck transition hover:scale-[1.03]"
             >
-              View selected work
+              {t("hero_cta_work")}
               <span className="transition group-hover:translate-x-1">→</span>
             </a>
             <a
               href="#contact"
               className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 font-medium text-foreground transition hover:bg-secondary/60"
             >
-              Hire me remotely
+              {t("hero_cta_hire")}
             </a>
           </div>
           <div className="mt-10 flex flex-wrap items-center gap-6 text-sm text-muted-foreground">
-            <Metric value="6+" label="Years building systems" />
+            <Metric value={t("hero_m1_v")} label={t("hero_m1_l")} />
             <Divider />
-            <Metric value="Remote" label="Worldwide · Any timezone" />
+            <Metric value={t("hero_m2_v")} label={t("hero_m2_l")} />
             <Divider />
-            <Metric value="AI · Cloud" label="Infra · Platforms · Agents" />
+            <Metric value={t("hero_m3_v")} label={t("hero_m3_l")} />
           </div>
         </div>
 
@@ -352,7 +349,7 @@ function Hero() {
             <div className="relative aspect-[4/5] overflow-hidden">
               <img
                 src={portrait}
-                alt="Pierfelice — Full-Stack & AI Engineer"
+                alt="Pierfelice — AI & Coding Infrastructure Engineer"
                 className="absolute inset-0 h-full w-full object-cover"
                 loading="eager"
               />
@@ -375,9 +372,9 @@ function Hero() {
               </div>
             </div>
             <div className="flex items-center justify-between border-t border-border/60 px-5 py-4 text-xs">
-              <span className="font-mono text-muted-foreground">AI & Coding Infra Engineer</span>
+              <span className="font-mono text-muted-foreground">{t("hero_role")}</span>
               <span className="rounded-full bg-duck/20 px-2 py-0.5 text-duck-glow">
-                Remote · Worldwide
+                {t("hero_badge_remote")}
               </span>
             </div>
           </div>
